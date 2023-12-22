@@ -1,0 +1,76 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} My Profile {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">My Profile</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{% url 'dashboard_home' %}" class="link-effect">Home</a></li>
+                        <li class="breadcrumb-item active">My Profile</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Update Profile</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post">
+                                {% csrf_token %} {{ form|crispy }} {{form2|crispy}}
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary w-75" type="submit">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $(function() {
+        $('#nav-profile').addClass('active');
+
+        $("form").validate({
+            rules: {
+                first_name:{
+                    required:true,
+                    alpha_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+                last_name:{
+                    required:true,
+                    alpha_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+            }
+        });
+    });
+</script>
+{% endblock javascript %}

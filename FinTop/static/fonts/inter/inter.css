@@ -1,0 +1,115 @@
+/* ----------------------- variable ----------------------- */
+/* extra */
+@font-face {
+    font-family: 'Inter var';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('Inter-italic.extra.var.woff2') format('woff2');
+    unicode-range: U+E000, U+E002-E081, U+E093-E097, U+E0A5-E0E7, U+E0F3-E11D, U+E11E-E165, U+EE01, U+F6C3;
+    font-named-instance: 'Italic';
+}
+
+/* alternates */
+@font-face {
+    font-family: 'Inter var';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('Inter-italic.alternates.var.woff2') format('woff2');
+    unicode-range: U+E000, U+E002-E081, U+E093-E097, U+E0A5-E0E7, U+E0F3-E11D, U+E11E-E165, U+EE01, U+F6C3;
+    font-named-instance: 'Italic';
+}
+
+/* symbols */
+@font-face {
+    font-family: 'Inter var';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('Inter-italic.symbols.var.woff2') format('woff2');
+    unicode-range: U+20DD-20DF, U+2190-219A, U+21A9-21AB, U+21B0-21B2, U+21B3-21B6, U+21BA-21BC, U+21D0, U+21D2, U+21D4, U+21DE-21E0, U+21E4-21E6, U+21E7, U+21EA, U+2303, U+2305, U+2318, U+2325-2328, U+232B, U+2380, U+2387, U+238B, U+23CE-23D0, U+2460-2469, U+24B6-24D0, U+24EA, U+25A0-25A3, U+25B2-25B4, U+25B6-25B8, U+25BA-25BE, U+25C0-25C2, U+25C4-25C8, U+25CB, U+25CF, U+25EF, U+2600, U+2605-2607, U+263C, U+2661, U+2665, U+26A0, U+2713, U+2717, U+2756, U+2764, U+2780-2789, U+27F5-27FB, U+2B06, U+2B12-2B14, U+2B1C, U+E000, U+E12B-E164, U+1F130-1F14A, U+1F850, U+1F852;
+    font-named-instance: 'Italic';
+}
+
+/* static fonts */
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 300;
+    font-display: swap;
+    src: url("Inter-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 100 300;
+    font-display: swap;
+    src: url("Inter-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("Inter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("Inter-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("Inter-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("Inter-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("Inter-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url("Inter-SemiBoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700 800;
+    font-display: swap;
+    src: url("Inter-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 700 800;
+    font-display: swap;
+    src: url("Inter-BoldItalic.woff2") format("woff2");
+}

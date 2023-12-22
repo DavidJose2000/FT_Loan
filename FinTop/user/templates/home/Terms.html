@@ -1,0 +1,22 @@
+{% extends 'layouts/home.html' %} {% block title %} Terms & Conditions {% endblock title %} {% block content %} {% load static %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>Terms & Conditions</li>
+        </ol>
+        <h2>Terms & Conditions</h2>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section>
+    <div class="container text-justify">
+      {% include "general_partials/terms.html" %}
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends 'layouts/home.html' %} {% block title %} About us {% endblock title %} {% block content %} {% load static %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>About us</li>
+        </ol>
+        <h2>About us</h2>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-in">
+                <h2>About FinTop</h2>
+             
+                <p>Our clients can easily use FinTop’s online tools to manage and track your application. Our mortgage consultant works closely with our client via our ‘Four Step application process’. We are in constant touch with our clients from start
+                    to finish and even after that in some cases to ensure the smooth process. We keep our clients informed on every step of their application. We provide continued oncall, online & in person support throughout our client’s application
+                    process.
+                </p>
+                <p>We have been operating in Melbourne CBD and Western Suburbs helping Melbournians arrange their mortgage. Just call us or sign in on our online platform to see how much easy it is to having us project manage your home loans.</p>
+                <p>We work closely with customer to understand customer’s needs and eligibility. We have ability to search hundreds of loans offered by Australian lenders. After doing intensive data analysis based on customer’s needs, we offer best suited
+                    products to our customers.</p>
+                <p>We have wide range of lenders. The more options you have the more suited product you can choose from. Our cutting edge process and software simplifies the selection process. We present such options to clients in our assessment appointment
+                    in extremely simple and understandable manner.</p>
+            </div>
+            <div class="col-lg-6" data-aos="fade-in">
+                <div class="mb-3">
+                    <h2>Industry qualified and accredited</h2>
+                    <p>All our mortgage consultants have completed a Certificate VI of Finance and Mortgage Broking Management. We are an accredited member of the Mortgage and Finance Association of Australia (MFAA). We also carry Professional Indemnity
+                        Insurance for your peace of mind. Under the National Consumer Credit Protection Act 2009, mortgage brokers either need to become fully licensed or be an authorised credit representative of a full licensee. FinTop aka Bhalekar Pty
+                        Ltd is a Credit Representative of BLSSA Pty Ltd, Australian Credit License 391237.</p>
+                </div>
+                <div class="mb-3">
+                    <h2>The Power to choose</h2>
+                    <p>Don’t just settle for the lender you’ve banked with for years, FinTop is on hand to show you a wide range of options. At FinTop we have 4 step process to capture client’s requiremnts and we undertake a cognitive lending tests to make
+                        sure the advice we give and products we recommend are tailored to our client’s needs and objectives.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %} {% block javascript %}
+<script>
+    $(function() {
+        $('#nav-about').addClass('active');
+    });
+</script>
+{% endblock javascript %}

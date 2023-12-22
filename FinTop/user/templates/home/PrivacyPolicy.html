@@ -1,0 +1,22 @@
+{% extends 'layouts/home.html' %} {% block title %} Privacy Policy {% endblock title %} {% block content %} {% load static %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>Privacy Policy</li>
+        </ol>
+        <h2>Privacy Policy</h2>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section>
+    <div class="container text-justify">
+      {% include "general_partials/privacy-policy.html" %}
+    </div>
+</section>
+
+{% endblock content %}

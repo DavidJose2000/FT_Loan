@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django-crispy-forms = "*"
+six = "*"
+mysqlclient = "*"
+django-tables2 = "*"
+pillow = "*"
+reportlab = "*"
+pylint-django = "*"
+xhtml2pdf = "*"
+django-utils-six = "*"
+django-bootstrap-form = "*"
+django-smtp-ssl = "*"
+requests = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

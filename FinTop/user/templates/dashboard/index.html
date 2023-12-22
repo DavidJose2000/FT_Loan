@@ -1,0 +1,99 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} Home {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Home</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item active">Home</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive">
+                            <div class="form-group">
+                                <label for="referral_link"><i class="fas fa-link mr-1"></i>My Referral Link</label>
+                                <div class="input-group">
+                                    <textarea name="referral_link" id="referral_link" class="form-control form-control-lg copy-input" rows="1" readonly="">https://fintop.com.au/signup/ref={{user.id }}</textarea>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <button class="btn btn-copy p-0" data-toggle="tooltip" data-placement="top" title="" data-target="referral_link" data-original-title="Click to Copy">
+                                            <img class="lazzy-effect lazy" data-src="{% static 'images/copy.svg' %}" height="30px" src="{% static 'images/loading.png' %}">
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-auto mx-2">
+                                    <a target="_blank" class="btn btn-social-share" href="https://api.whatsapp.com/send/?phone&text=Let's signup on FinTop! It's a fast, simple, and secure platform to apply & manage home loan Mortgages.
+https://fintop.com.au/signup/ref={{user.id }}">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                </div>
+                                <div class="col-auto mx-2">
+                                    <button class="btn btn-social-share" data-sharer="facebook" data-hashtag="fintop" data-url="https://fintop.com.au/signup/ref={{user.id }}" data-title="Let's signup on FinTop! It's a fast, simple, and secure platform to apply & manage home loan Mortgages.
+">
+                                        <i class="fab fa-facebook"></i>
+                                    </button>
+                                </div>
+                                <div class="col-auto mx-2">
+                                    <button class="btn btn-social-share" data-sharer="twitter" data-hashtag="fintop" data-url="https://fintop.com.au/signup/ref={{user.id }}" data-title="Let's signup on FinTop! It's a fast, simple, and secure platform to apply & manage home loan Mortgages.
+">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                </div>
+                                <div class="col-auto mx-2">
+                                    <button class="btn btn-social-share" data-sharer="linkedin" data-hashtag="fintop" data-url="https://fintop.com.au/signup/ref={{user.id }}" data-title="Let's signup on FinTop! It's a fast, simple, and secure platform to apply & manage home loan Mortgages.
+">
+                                        <i class="fab fa-linkedin"></i>
+                                    </button>
+                                </div>
+                                <div class="col-auto mx-2">
+                                    <button class="btn btn-social-share" data-sharer="email" data-title="Let's signup on FinTop! It's a fast, simple, and secure platform to apply & manage home loan Mortgages.
+" data-subject="Hey! join fintop using this link" data-to="" data-url="https://fintop.com.au/signup/ref={{user.id }}">
+                                        <i class="fa fa-at"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %} {% block javascript %}
+
+<script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+<script>
+    $(function() {
+        $('#nav-home').addClass('active');
+    });
+</script>
+{% endblock javascript %}

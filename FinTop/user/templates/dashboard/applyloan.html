@@ -1,0 +1,344 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} Apply for loan {%endblock title %} {% block content %}
+{% load static %} {% load crispy_forms_tags %}
+<style>
+    h3,
+    .h3 {
+        font-size: 1.75rem;
+        font-weight: bold;
+        color: var(--primary);
+    }
+
+    span.asteriskField {
+        color: var(--danger);
+        font-weight: bold;
+        margin-left: 2px;
+    }
+
+    .highlight-hidden-fields {
+        border-bottom-right-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
+        background-color: #dff2ff;
+        margin-top: -16px;
+        padding: 15px 15px 1px 15px;
+        margin-bottom: 8px;
+    }
+</style>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Loan Application</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'dashboard_home' %}" class="link-effect">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'loan' %}" class="link-effect">My Loans</a>
+                        </li>
+                        <li class="breadcrumb-item active">Loan Application</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                {{ loan.loan_type|as_crispy_field }}
+                                <h3>Asset</h3>
+                                {{ loan.vehicle|as_crispy_field }}
+                                <div id="vehicle-input-boxes" class="highlight-hidden-fields">
+                                    {{ loan.vehicle_worth|as_crispy_field }} {{ loan.vehicle_money|as_crispy_field }}
+				    {{ loan.carloan_pay|as_crispy_field }}
+                                </div>
+                                {{ loan.accounts|as_crispy_field }} {{ loan.superannuation|as_crispy_field }}
+                                {{ loan.additional_asset|as_crispy_field }}
+                                <div id="asset-input-boxes" class="highlight-hidden-fields">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="td-tab" data-toggle="tab" href="#home"
+                                                role="tab" aria-controls="home" aria-selected="true">Term Deposit</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="share-tab" data-toggle="tab" href="#profile"
+                                                role="tab" aria-controls="profile" aria-selected="false">Shares</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="mf-tab" data-toggle="tab" href="#contact" role="tab"
+                                                aria-controls="contact" aria-selected="false">Managed Funds</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="gift-tab" data-toggle="tab" href="#giftid"
+                                                role="tab" aria-controls="contact" aria-selected="false">Gifts</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                            aria-labelledby="td-tab">
+                                            <input type="checkbox" id="fname" name="td" value="1">
+                                            <label for="fname">Tick here if you want to include Term Deposit</label>
+                                            <div id="div_id_description" class="form-group">
+                                                <label for="id_description" class="">
+                                                    Description
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="td_description" maxlength="15"
+                                                        class="textinput textInput form-control" id="id_description">
+                                                </div>
+                                            </div>
+                                            <div id="div_id_total_value" class="form-group">
+                                                <label for="id_total_value" class="">
+                                                    Total Value
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="td_total_value"
+                                                        class="textinput textInput form-control" id="id_total_value">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="profile" role="tabpanel"
+                                            aria-labelledby="share-tab">
+                                            <input type="checkbox" id="share" name="share" value="1">
+                                            <label for="share">Tick here if you want to include Shares</label>
+                                            <div id="div_id_description" class="form-group">
+                                                <label for="id_description" class="">
+                                                    Description
+                                                </label>
+
+                                                <div class="">
+                                                    <input type="text" name="share_description" maxlength="15"
+                                                        class="textinput textInput form-control" id="id_description">
+                                                </div>
+                                            </div>
+                                            <div id="div_id_total_value" class="form-group">
+                                                <label for="id_total_value" class="">
+                                                    Total Value
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="share_total_value"
+                                                        class="textinput textInput form-control" id="id_total_value">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="contact" role="tabpanel"
+                                            aria-labelledby="mf-tab">
+                                            <input type="checkbox" id="mf" name="mf" value="1">
+                                            <label for="mf">Tick here if you want to include Managed Funds</label>
+                                            <div id="div_id_description" class="form-group">
+                                                <label for="id_description" class=" requiredField">
+                                                    Description
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="mf_description" maxlength="15"
+                                                        class="textinput textInput form-control" id="id_description">
+                                                </div>
+                                            </div>
+                                            <div id="div_id_total_value" class="form-group">
+                                                <label for="id_total_value" class=" requiredField">
+                                                    Total Value
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="mf_total_value"
+                                                        class="textinput textInput form-control" id="id_total_value">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="giftid" role="tabpanel"
+                                            aria-labelledby="gift-tab">
+                                            <input type="checkbox" id="gifts" name="gifts" value="1">
+                                            <label for="gifts">Tick here if you want to include Gifts</label>
+                                            <div id="div_id_description" class="form-group">
+                                                <label for="id_description" class=" requiredField">
+                                                    Description
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="gift_description" maxlength="15"
+                                                        class="textinput textInput form-control" id="id_description">
+                                                </div>
+                                            </div>
+                                            <div id="div_id_total_value" class="form-group">
+                                                <label for="id_total_value" class=" requiredField">
+                                                    Total Value
+                                                </label>
+                                                <div class="">
+                                                    <input type="text" name="gift_total_value"
+                                                        class="textinput textInput form-control" id="id_total_value">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ loan.home_content|as_crispy_field }}
+                            </div>
+                            <div class="col-lg-6">
+                                <h3>Liabilities</h3>
+                                {{ loan.credit_card|as_crispy_field }}
+                                <div class="highlight-hidden-fields" id="loan-credit_limit-fields">
+                                    {{ loan.credit_limit|as_crispy_field }}
+                                </div>
+                                {{ loan.liability_loan|as_crispy_field }}
+                                <div id="liability-input-boxes" style="display: none" class="highlight-hidden-fields">
+                                    {{ liability|crispy }}
+                                </div>
+                                {{ loan.loans|as_crispy_field }}
+                                <h3>Income</h3>
+                                {{ loan.employment_type|as_crispy_field }} {{ loan.annual_salary|as_crispy_field }}
+                                <h3>Expense</h3>
+                                {{ loan.monthly_expense|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="text-right mt-4">
+                            <button class="btn btn-primary" type="submit">Submit For Approval</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $("#nav-loan").addClass("active");
+
+    $("#div_id_superannuation").append(
+        "<small>How much amount in total you have in all your superannuation accounts.</small>"
+    );
+    $("#div_id_vehicle_worth").append(
+        "<small>Approximately how much the vehicle is worth?</small>"
+    );
+    $("#div_id_vehicle_money").append(
+        "<small>How much money do you own on this vehicle?</small>"
+    );
+    $("#div_id_accounts").append(
+        "<small>How much amount in total you have in all your savings/current accounts?</small>"
+    );
+    $("#div_id_liability_type").append(
+        "<small>Do you have any other liabilities such as tax debt, or other lines of credit?</small>"
+    );
+    $("#div_id_additional").append(
+        "<small>Do you have any other assets such as term deposits shares funds or gifts, if yes please provide below details?</small>"
+    );
+    $("#div_id_annual_salary").append(
+        "<small>What is your annual base salary/Annual self-employed income or profit including additional income such as bonus, commission, overtime etc.?</small>"
+    );
+    $("#div_id_monthly_expense").append(
+        "<small>Please tell us how much is your approximate monthly expense for living? (For example, you can consider including Groceries, Clothing, Phone, internet Bill, entertainment, Utility bills, Insurance, Medical and health, Childcare, Education, Investment property maintenance, Rent, Other living expense, Other financial commitments)</small>"
+    );
+    $("#div_id_liability_loan").append(
+        "<small>Do you have any other liabilities such as tax debt, existing mortgage or other lines of credit?</small>"
+    );
+    $("#div_id_credit_card").append(
+        "<small>Do you have any credit card/s if yes please provide total combine Credit limit on all credit cards</small>"
+    );
+    $("#id_home_content").append(
+        "<small>Home contains includes jewellery, appliances, other valuable items you own</small>"
+    );
+
+    $('#id_vehicle').change(function () {
+        if ($(this).val() == "Yes") {
+            $("#vehicle-input-boxes").slideDown();
+        } else {
+            $("#vehicle-input-boxes").slideUp();
+        }
+    }).trigger("change");
+
+    $('#id_additional_asset').change(function () {
+        if ($(this).val() == "Yes") {
+            $("#asset-input-boxes").slideDown();
+        } else {
+            $("#asset-input-boxes").slideUp();
+        }
+    }).trigger("change");
+
+    $('#id_liability_loan').change(function () {
+        if ($(this).val() == "Yes") {
+            $("#liability-input-boxes").slideDown();
+        } else {
+            $("#liability-input-boxes").slideUp();
+        }
+    }).trigger("change");
+
+    $('#id_credit_card').change(function () {
+        if ($(this).val() == "Yes") {
+            $("#loan-credit_limit-fields").slideDown();
+        } else {
+            $("#loan-credit_limit-fields").slideUp();
+        }
+    }).trigger("change");
+
+    $(document).on("paste keypress", "#id_accounts, #id_superannuation, #id_vehicle_worth, #id_vehicle_money, #id_total_value, #id_credit_limit, #id_annual_salary, #id_monthly_expense, #id_home_content, #id_owned", function (e) {
+        return InputOnlyNum(e);
+    });
+
+    function InputOnlyNum(e) {
+        var e = e || event;
+        var char = e.type == 'keypress' ?
+            String.fromCharCode(e.keyCode || e.which) :
+            (e.clipboardData || window.clipboardData).getData('Text');
+        if (/[^\d.]/gi.test(char)) {
+            return false;
+        }
+    }
+
+    $("form").validate({
+        rules: {
+            accounts: {
+                num_only: true,
+            },
+            phnumber: {
+                num_only: true,
+            },
+            superannuation: {
+                num_only: true,
+            },
+            vehicle_worth: {
+                num_only: true,
+            },
+            vehicle_money: {
+                num_only: true,
+            },
+            total_value: {
+                num_only: true,
+            },
+            credit_limit: {
+                num_only: true,
+            },
+            annual_salary: {
+                num_only: true,
+            },
+            monthly_expense: {
+                num_only: true,
+            },
+            home_content: {
+                num_only: true,
+            },
+            owned: {
+                num_only: true,
+            },
+        }
+    });
+
+
+</script>
+{% endblock javascript %}

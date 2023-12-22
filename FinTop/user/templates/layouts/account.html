@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock title %} | Dashboard | FinTop</title>
+    <!-- css files -->
+    {% include "layouts/dashboard_partials/css.html" %}
+    <!-- Styles to be included in a particular page -->
+    {% block css %} {% endblock css %}
+
+    <style>
+        .navbar-light .navbar-nav .nav-link {
+            color: var(--font-color);
+        }
+        .navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+            color: var(--primary);
+        }
+
+        .navbar-light .navbar-brand {
+            color: var(--font-color) !important;
+            font-size: 1.8rem;
+            font-family: var(--font-family-secondary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="hold-transition pace-primary" data-mode="light">
+    <div class="container-fluid">
+        <div class="row no-gutter">
+        <div class="col-lg-6 col-md-6 d-none d-md-block p-0" style="position: relative;">
+            <div style="position:sticky;top:0;left:0">
+                <div class="login-carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" style="background-image: url('https://image.freepik.com/free-photo/property-market-house-shopping-cart-keys_1150-17826.jpg');">
+                            <div class="carousel-container">
+                                <div class="carousel-content container">
+                                    <h2 class="animated fadeInDown">FinTop</h2>
+                                    <p class="animated fadeInUp">
+                                        Australia’s Own Premium ‘Home Loan’ Platform
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url('https://image.freepik.com/free-photo/villa-house-model-key-drawing-retro-desktop-real-estate-sale-concept_1387-412.jpg');">
+                            <div class="carousel-container">
+                                <div class="carousel-content container">
+                                    <h2 class="animated fadeInDown">FinTop</h2>
+                                    <p class="animated fadeInUp">
+                                        17+ Major Australian lenders. Secure and confidential
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-lg-6 col-md-6 p-0" >
+            <!-- <nav class="navbar navbar-light bg-white">
+                <a class="navbar-brand text-left text-md-center" href="/">
+                <img src="{% static 'images/logo.png' %}" class="img-fluid" style="max-height:3rem;">
+                </a>
+            </nav> -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <a class="navbar-brand text-left text-md-center" href="/">
+                    <img src="{% static 'images/favicon.png' %}" class="img-fluid" style="max-height:3rem;">
+                    FINTOP
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto font-weight-bold">
+                    <li class="nav-item" id="nav-home">
+                      <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item" id="nav-login">
+                      <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item" id="nav-signup">
+                      <a class="nav-link" href="{% url 'signup' %}">Register</a>
+                    </li>
+                    <a class="nav-link" href="#" role="button" id="dark-light-switch" data-toggle="tooltip"
+                        title="Turn on dark mode">
+                        <i class="fa fa-moon"></i>
+                    </a>
+                </div>
+              </nav>
+
+            <div class="d-flex align-items-center pt-3" style="min-height: 80vh;">
+                {% block content %} {% endblock content %}
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- js files -->
+    {% include "layouts/dashboard_partials/js.html" %}
+    {% block javascript %} {% endblock javascript %}
+</body>
+
+</html>

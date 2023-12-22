@@ -1,0 +1,102 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} Business Form {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Business Form</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'dashboard_home' %}" class="link-effect">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Business Form</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="" method="post">
+                                {% csrf_token %} {{ form|crispy }}
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="terms" name="terms">
+                                    <label class="custom-control-label" for="terms">I have read the <a href="#" data-toggle="modal" data-target="#exampleModal">BizPatner Agreement</a> and I sign and accept to agreement Terms</label>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary w-75" type="submit" disabled id="btn-submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">BizPatner Agreement</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-justify">
+                {% include "commons/agreement2.html" %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $('#nav-Business').addClass('active');
+
+    $(document).on('change', '#terms', function() {
+        $('#btn-submit').attr('disabled', !$(this).prop('checked'));
+    });
+
+    $("form").validate({
+        rules: {
+            fullname:{
+                required:true,
+                alpha_only: true,
+                minlength: 3,
+                maxlength: 50,
+            },
+            signature:{
+                required:true,
+                alpha_only: true,
+                minlength: 3,
+                maxlength: 50,
+            },
+        }
+    });
+</script>
+{% endblock javascript %}

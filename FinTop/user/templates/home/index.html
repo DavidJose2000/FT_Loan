@@ -1,0 +1,769 @@
+{% extends 'layouts/home.html' %} 
+{% block title %} Australia's Own Premium Home Loan Platform 
+{% endblock title %} 
+{% block hero_section %}
+<section id="hero" class="d-flex align-items-center">
+    <div class="container-fluid" data-aos="zoom-out" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="row">
+                    <div class="col-xl-5">
+                        <h1>Australia's Own Premium 'Home Loan' Platform</h1>
+                        <h2>17<sup>+</sup> Major Australian lenders<br>Secure and confidential</h2>
+                        <a href="https://fintop.agilecrm.com/calendar/mortgage" class="btn-get-started"
+                            target="_blank">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+{% endblock hero_section %} 
+{% block content %} 
+{% load static %}
+
+<!-- ======= Clients Section ======= -->
+<section id="clients" class="clients">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 mb-5" data-aos="zoom-in">
+                <h2 class="text-center">Access 17+ lenders with low rates from 1.89% | 2.98% comparison rate*</h2>
+            </div>
+            <div class="col-xl-10 pt-3" data-aos="zoom-in" data-aos-delay="200">
+                <div class="owl-carousel clients-carousel">
+                    <img src="{% static 'images/banks/Suncorp.png' %}" alt="">
+                    <img src="{% static 'images/banks/st george bank.jpg' %}" alt="">
+                    <img src="{% static 'images/banks/Westpac.jpg' %}" alt="">
+                    <img src="{% static 'images/banks/NAB.png' %}" alt="">
+                    <img src="{% static 'images/banks/anz.png' %}" alt="">
+                    <img src="{% static 'images/banks/Bankwest.png' %}" alt="">
+                    <img src="{% static 'images/banks/Choicelend.webp' %}" alt="">
+                    <img src="{% static 'images/banks/Bank of Melbourne.png' %}" alt="">
+                    <img src="{% static 'images/banks/Bank SA.svg' %}" alt="">
+                    <img src="{% static 'images/banks/Virgin Money.png' %}" alt="">
+                    <img src="{% static 'images/banks/Pepper Money.png' %}" alt="">
+                    <img src="{% static 'images/banks/Adelaide Bank Bendigo.png' %}" alt="">
+                    <img src="{% static 'images/banks/ING.png' %}" alt="">
+                    <img src="{% static 'images/banks/ME.png' %}" alt="">
+                    <img src="{% static 'images/banks/Macquire.png' %}" alt="">
+                    <img src="{% static 'images/banks/Bank of China.jpg' %}" alt="">
+                    <img src="{% static 'images/banks/Citibank.png' %}" alt="">
+                    <img src="{% static 'images/banks/Liberty.png' %}" alt="">
+                    <img src="{% static 'images/banks/Heritage Bank.png' %}" alt="">
+                    <img src="{% static 'images/banks/Bank of Queensland.jpg' %}" alt="">
+                    <img src="{% static 'images/banks/ampo.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Clients Section -->
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+            <div class="content col-xl-5">
+                <div class="content">
+                    <h1>FinTop</h1>
+                    <h5>
+                        Australia's Own Premium 'Home Loan' Platform
+                    </h5>
+                </div>
+            </div>
+            <div class="col-xl-7">
+                <div class="section-title">
+                    <h2 class="text-white">About</h2>
+                </div>
+                <p class="font-italic">
+                    Our clients can easily use FinTop’s online tools to manage and track your application. Our mortgage
+                    consultant works closely with our client via our ‘Four Step application process’. We are in constant
+                    touch with our clients from start to finish and even
+                    after that in some cases to ensure the smooth process. We keep our clients informed on every step of
+                    their application. We provide continued oncall, online & in person support throughout our client’s
+                    application process.
+                </p>
+                <a href="{% url 'about' %}" class="read-more">Read More</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End About Section -->
+
+<!-- ======= comparison Section ======= -->
+<section class="comparison-section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Fintop is different</h2>
+            <p>We actively manage your home loan for as long as you need us to.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 m-auto">
+                <div class="comparison-container" data-aos="zoom-in">
+                    <table id="comparison">
+                        <colgroup>
+                            <col span="1" class="comparison-first-column">
+                            <col width="144px" class="comparison-table-column">
+                            <col width="144px">
+                            <col width="144px">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <th>Fintop</th>
+                                <th>Lenders <br> or banks</th>
+                                <th>Brokers</th>
+                            </tr>
+                            <tr>
+                                <td>Support from a dedicated home loan expert</td>
+                                <td><img class="comparison-image-cross" src="{% static 'images/ticks/tick.png' %}"></td>
+                                <td><img class="comparison-image-tick" src="{% static 'images/ticks/tick-red.png' %}">
+                                </td>
+                                <td><img class="comparison-image-tick" src="{% static 'images/ticks/tick-red.png' %}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Choice of lenders</td>
+                                <td><img class="comparison-image-tick" src="{% static 'images/ticks/tick.png' %}"></td>
+                                <td><img class="comparison-image-cross"
+                                        src="{% static 'images/ticks/cross-gray.svg' %}"></td>
+                                <td><img class="comparison-image-tick" src="{% static 'images/ticks/tick-red.png' %}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Regular monitoring of your loan against 1000s of deals</td>
+                                <td><img class="comparison-image-tick" src="{% static 'images/ticks/tick.png' %}"></td>
+                                <td><img class="comparison-image-cross"
+                                        src="{% static 'images/ticks/cross-gray.svg' %}"></td>
+                                <td><img class="comparison-image-cross"
+                                        src="{% static 'images/ticks/cross-gray.svg' %}"></td>
+                            </tr>
+                            <tr>
+                                <td>Proactive alerts when you could save</td>
+                                <td><img class="comparison-image-tick" src="{% static 'images/ticks/tick.png' %}"></td>
+                                <td><img class="comparison-image-cross"
+                                        src="{% static 'images/ticks/cross-gray.svg' %}"></td>
+                                <td><img class="comparison-image-cross"
+                                        src="{% static 'images/ticks/cross-gray.svg' %}"></td>
+                            </tr>
+                            <tr>
+                                <td>Monthly update on your loanScore and potential savings</td>
+                                <td><img class="comparison-image-tick" src="{% static 'images/ticks/tick.png' %}"></td>
+                                <td><img class="comparison-image-cross"
+                                        src="{% static 'images/ticks/cross-gray.svg' %}"></td>
+                                <td><img class="comparison-image-cross"
+                                        src="{% static 'images/ticks/cross-gray.svg' %}"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="comparison-table-column-container d-none d-lg-block d-md-block"></div>
+                </div>
+            </div>
+            <div class="col-12 text-center pt-5 mt-3" data-aos="zoom-in">
+                <a href="{% url 'login' %}" class="btn btn-lg btn-primary m-3">
+                    Find me a great home loan
+                </a>
+                <a href="https://fintop.agilecrm.com/calendar/mortgage" class="btn btn-lg btn-primary m-3"
+                    target="_blank">
+                    Book Appointment with Loan Expert
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End comparison Section -->
+
+<!-- End Counts Section -->
+
+<!-- ======= HOME LOAN Section ======= -->
+<section id="about" class="about section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+            <div class="content col-xl-5 d-flex align-items-stretch">
+                <div class="content">
+                    <h3>HOME LOAN</h3>
+                    <p>
+                        The initial footsteps to buying a home are always the most challenging. At FinTop we enjoy the
+                        opportunity to help a first home buyer with their property purchase. It is an exciting but often
+                        nerve wracking time for you so it helps to have someone there
+                        to bounce ideas off and get guidance from.
+                    </p>
+                </div>
+            </div>
+            <div class="col-xl-7 d-flex align-items-stretch">
+                <div class="icon-boxes d-flex flex-column justify-content-center">
+                    <div class="row">
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                            <i class="bx bxs-store"></i>
+                            <h4>Choose from 17 lenders</h4>
+                            <p>It pays to shop around. We match you with the right loan for your specific needs and
+                                preferences.
+                            </p>
+                        </div>
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                            <i class="bx bx-dumbbell"></i>
+                            <h4>We do the heavy lifting</h4>
+                            <p>Sit back and relax. Once you have choosing your loan, we will submit, package and guide
+                                it all the way to settlement.</p>
+                        </div>
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                            <i class="bx bx-support"></i>
+                            <h4>Ask us anything</h4>
+                            <p>There is no such thin as stupid question. We are here to share unlimited advice every
+                                step of the way.
+                            </p>
+                        </div>
+                        <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                            <i class="bx bx-pointer"></i>
+                            <h4>Easy online tools</h4>
+                            <p>
+                                Apply for the loan online via our platform and get it approved faster. Track your loan
+                                progress 24/7 on our platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End .content-->
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End About Section -->
+
+<!-- ======= Tabs Section ======= -->
+<section id="tabs" class="tabs">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title" data-aos="zoom-in">
+            <h2>Get Loan Approved in Four Easy Steps</h2>
+            <p>Get Loan Approved in Four Easy Steps.</p>
+        </div>
+
+        <ul class="nav nav-tabs row d-flex">
+            <li class="nav-item col-3">
+                <a class="nav-link active show" data-toggle="tab" href="#tab-1">
+                    <i class="ri-arrow-right-line"></i>
+                    <h4 class="d-none d-lg-block">Step 1</h4>
+                </a>
+            </li>
+            <li class="nav-item col-3">
+                <a class="nav-link" data-toggle="tab" href="#tab-2">
+                    <i class="ri-arrow-right-line"></i>
+                    <h4 class="d-none d-lg-block">Step 2</h4>
+                </a>
+            </li>
+            <li class="nav-item col-3">
+                <a class="nav-link" data-toggle="tab" href="#tab-3">
+                    <i class="ri-arrow-right-line"></i>
+                    <h4 class="d-none d-lg-block">Step 3</h4>
+                </a>
+            </li>
+            <li class="nav-item col-3">
+                <a class="nav-link" data-toggle="tab" href="#tab-4">
+                    <i class="ri-arrow-right-line"></i>
+                    <h4 class="d-none d-lg-block">Step 4</h4>
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab-1">
+                <div class="row">
+                    <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="{% static 'images/numbers/1.svg' %}" alt="" class="img-fluid"
+                            style="max-height: 350px;">
+                    </div>
+                    <div class="col-lg-6 mt-3 mt-lg-0 d-flex align-items-center justify-content-center"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-block">
+                            <h3>First Contact.</h3>
+                            <p class="font-italic">
+                                At this step, first contact between you and our team is made. After first contact, we
+                                assign most suitable loan writer to work with you.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab-2">
+                <div class="row">
+                    <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="{% static 'images/numbers/2.svg' %}" alt="" class="img-fluid"
+                            style="max-height: 350px;">
+                    </div>
+                    <div class="col-lg-6 mt-3 mt-lg-0 d-flex align-items-center justify-content-center"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-block">
+                            <h3>Handshake Appointment.</h3>
+                            <p class="font-italic">
+                                This 15 minutes appointment between you and our loan writer. During the handshake
+                                appointment our consultant will ask specific questions related to your case and to
+                                understand your requirements more clearly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab-3">
+                <div class="row">
+                    <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="{% static 'images/numbers/3.svg' %}" alt="" class="img-fluid"
+                            style="max-height: 350px;">
+                    </div>
+                    <div class="col-lg-6 mt-3 mt-lg-0 d-flex align-items-center justify-content-center"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-block">
+                            <h3>Assessment Appointment.</h3>
+                            <p class="font-italic">
+                                During this 1 hour Assessment appointment, our loan writer will access your loan
+                                eligibility and provide you the product recommendation based on your eligibility and
+                                preferences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab-4">
+                <div class="row">
+                    <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <img src="{% static 'images/numbers/4.svg' %}" alt="" class="img-fluid"
+                            style="max-height: 350px;">
+                    </div>
+                    <div class="col-lg-6 mt-3 mt-lg-0 d-flex align-items-center justify-content-center"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-block">
+                            <h3>App_sub Appointment.</h3>
+                            <p class="font-italic">
+                                One hour App_Sub appointment is the last step in the process, where your inputs are
+                                needed. At end of this appointment we submit your loan application to chosen financial
+                                organisation. Once application is submitted you can track application progress on
+                                FinTop platform under my loans.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Tabs Section -->
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title text-white">
+            <h2 class="text-white">Get free expert advice on your home loan</h2>
+            <p>Our experts will help you search, choose and settle your home loan online. Chat to one of our Home Loan
+                Specialist at a time that suits you.</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <a href="tel:+610370369830" class="text-white">
+                    <div class="icon-box">
+                        <img src="{% static 'images/advice/icons8-phone-64.png' %}" alt="">
+                        <h4>+61 3 7036 9830</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://wa.me/61474499593" target="_blank" class="text-white">
+                    <div class="icon-box">
+                        <img src="{% static 'images/advice/icons8-chat-64.png' %}" alt="">
+                        <h4>Live Chat</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://fintop.agilecrm.com/calendar/mortgage" target="_blank" class="text-white">
+                    <div class="icon-box">
+                        <img src="{% static 'images/advice/icons8-calendar-64.png' %}" alt="">
+                        <h4>Choose a time</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100">
+                <a href="mailto:mail@fintop.com.au " class="text-white">
+                    <div class="icon-box">
+                        <img src="{% static 'images/advice/icons8-email-64.png' %}" alt="">
+                        <h4>mail@fintop.com.au </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Services Section -->
+
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Testimonials</h2>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-xl-10">
+                <div class="owl-carousel testimonials-carousel">
+
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="https://ui-avatars.com/api/?bold=true&rounded=true&size=600&color=0071bd&background=fff4dd&name=Pritesh G"
+                                class="testimonial-img" alt="">
+                            <h3>Pritesh G</h3>
+                            <h4>FinTop User</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i> Very proactive and professional
+                                service. I have received extremely valuable advices as part of my consultation with
+                                FinTop’s Mortgage Consultants.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="https://ui-avatars.com/api/?bold=true&rounded=true&size=600&color=0071bd&background=fff4dd&name=Abhishek A"
+                                class="testimonial-img" alt="">
+                            <h3>Abhishek A</h3>
+                            <h4>FinTop User</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i> Extremely organized approach for
+                                loan application. At each step I was aware about the requirements and status of my
+                                application.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="https://ui-avatars.com/api/?bold=true&rounded=true&size=600&color=0071bd&background=fff4dd&name=Anshul M"
+                                class="testimonial-img" alt="">
+                            <h3>Anshul M</h3>
+                            <h4>FinTop User</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i> FinTop team is fantastic to deal
+                                with. Great advices and nimble approach to applications. I like the online platform and
+                                it gives clients more confidence and ease of
+                                loan submission.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="https://ui-avatars.com/api/?bold=true&rounded=true&size=600&color=0071bd&background=fff4dd&name=Bhanu"
+                                class="testimonial-img" alt="">
+                            <h3>Bhanu</h3>
+                            <h4>FinTop User</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i> FinTop Team has gone above and
+                                beyond, they have been pleasure to deal with and would highly recommend to anyone.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Testimonials Section -->
+
+<!-- ======= Frequently Asked Questions Section ======= -->
+<section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <ul class="faq-list" data-aos="fade-up">
+
+            <li>
+                <a data-toggle="collapse" class="collapsed" href="#faq1">What is a mortgage manager? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq1" class="collapse" data-parent=".faq-list">
+                    <p>
+                        It describes an organisation that can offer its clients custom-designed loans to suit their
+                        individual needs. A mortgage manager can approve your loan in-house, manage every aspect of your
+                        loan throughout the term and provide wholesale interest rates
+                        to save you money.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq2" class="collapsed">What does this service cost? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq2" class="collapse" data-parent=".faq-list">
+                    <p>
+                        The services is divided into four step process. First two steps are free for you. We charge $250
+                        assessment appointment, however, in most cases that fees is waived off conditioned you do not
+                        migrate to other product for 2 year period. Fees is added to
+                        breakage cost if you decide to switch to other service provider. There is no other fee for
+                        finding the right loan for you. FinTop (Bhalekar Pty. Ltd.) gets paid a commission from the
+                        lender – though please note, our consultants
+                        are paid though commissions for the loans they arrange. Your interests are really at the heart
+                        of what they do.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq3" class="collapsed">What does a mortgage broker do? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq3" class="collapse" data-parent=".faq-list">
+                    <p>
+                        A mortgage broker / loan writer acts an intermediary between you as a borrower and a number of
+                        lenders. The broker’s role is to assess your personal circumstances, find a suitable loan
+                        product for you and then negotiate the successful approval and settlement
+                        of the loan.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq4" class="collapsed">Why would I use FinTop instead of a bank? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq4" class="collapse" data-parent=".faq-list">
+                    <p>
+                        FinTop offers competitive products and interest rates and will always strive to provide a
+                        positive and rewarding experience. Unlike a bank, we provide a personalised service where you
+                        can ask for someone by name, and you have your own mortgage consultant.
+                        We specialise only in home loans, and have a wide range available from more than 17 major banks
+                        and retail mortgage providers – so we offer a greater choice of loans than any bank.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq5" class="collapsed">For what purposes can I borrow money? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq5" class="collapse" data-parent=".faq-list">
+                    <p>
+                        Many:
+                    </p>
+                    <ul>
+                        <li>
+                            To buy a home.
+                        </li>
+                        <li>
+                            To buy a residential investment property.
+                        </li>
+                        <li>
+                            To refinance an existing home loan.
+                        </li>
+                        <li>
+                            To refinance an existing loan and consolidate your other debts.
+                        </li>
+                        <li>
+                            For investment purposes (other than property) where you provide enough equity in residential
+                            property as security.
+                        </li>
+                        <li>
+                            Most other purposes (such as buying cars, holidays, weddings, school fees) secured by your
+                            home.
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq6" class="collapsed">What type of loans do you help me get? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq6" class="collapse" data-parent=".faq-list">
+                    <p>
+                        At FinTop we can assist you with residential home loans, where we have access to a broad variety
+                        of loan products through many different lenders. Determined by your circumstances, we use our
+                        unique four step process and a match selection system to identify
+                        the best loan for you and back this up with our Future Proof Loan Commitment to make sure you
+                        feel secure in your future financial loan situation.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq7" class="collapsed">Where does FinTop source its loan funds from?
+                    <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq7" class="collapse" data-parent=".faq-list">
+                    <p>
+                        As a mortgage broker FinTop does not usually lend our own money out as we arrange loans for our
+                        clients with major banks and other lenders.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq8" class="collapsed">How much income do I need to qualify for a home
+                    loan? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq8" class="collapse" data-parent=".faq-list">
+                    <p>
+                        This will depend upon your circumstances, what loan product you are looking for and the purpose
+                        of the loan. Working through our match selection system we analyse and identify your needs and
+                        then look for the best solutions for your individual needs and
+                        circumstances.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq9" class="collapsed">How much deposit will I need for a home loan?
+                    <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq9" class="collapse" data-parent=".faq-list">
+                    <p>
+                        Each lender has different rules about how much deposit you will need to have but as a general
+                        rule, you will now need at least 5% deposit in addition to other purchase costs.
+                    </p>
+                    <p>
+                        In some cases a lender will ask you to show that you have saved the deposit yourself to
+                        demonstrate that you have the savings history. This acts as a good indicator that you will be
+                        able to afford your home loan repayments. If you offer less than a 20%
+                        deposit you will also be required to take out mortgage insurance to protect the lender.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq10" class="collapsed">What is mortgage insurance? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq10" class="collapse" data-parent=".faq-list">
+                    <p>
+                        Mortgage insurance covers the lender in the unlikely event that you default on your loan. It
+                        does not cover you, the borrower. Your mortgage consultant will advise you if you require
+                        mortgage insurance and the costs involved. We may be able to structure
+                        your loan to avoid, or minimise the need for mortgage insurance.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq11" class="collapsed">How quickly can the loan be settled? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq11" class="collapse" data-parent=".faq-list">
+                    <p>
+                        There is no simple answer to this, but some lenders tend to offer quicker service than others.
+                        It usually takes between two and three weeks for you to get your money from the date we receive
+                        your application. The speed of this process often depends on
+                        your personal situation and which lender is selected.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq12" class="collapsed">What’s the difference between fixed and
+                    variable rates? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq12" class="collapse" data-parent=".faq-list">
+                    <p>
+                        With a variable rate loan, the interest rate you pay can change at any time, either up or down,
+                        in line with official interest rates set by the Reserve Bank of Australia. Market circumstances
+                        and competition between lenders can also lead to interest rate
+                        changes, which can affect the interest rate of your loan.
+                    </p>
+                    <p>
+                        The interest rate of a fixed rate loan is just that – fixed (or set). It remains unchanged, for
+                        a specified period, often a number of years, regardless of changes to interest rates generally.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq13" class="collapsed">Should I choose a fixed or variable interest
+                    rate? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq13" class="collapse" data-parent=".faq-list">
+                    <p>
+                        This depends on whether you think interest rates will rise or fall in the coming years. If you
+                        think interest rates will rise in the coming years, you may want to fix your rate at today’s
+                        lower rate.
+                    </p>
+                    <p>
+                        Be aware though, predicting future interest rate levels is very uncertain. You may fix a loan at
+                        today’s rate, only to see future interest rates fall – in which case having a variable rate
+                        loan, whose interest rate would also fall – would have proved
+                        to be the better option.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq14" class="collapsed">How do I know which loan is best for my needs?
+                    <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq14" class="collapse" data-parent=".faq-list">
+                    <p>
+                        This is best answered by meeting one of our mortgage consultants. Through the website you will
+                        see there are many factors to consider which is best for your individual needs.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq15" class="collapsed">What is a split loan? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq15" class="collapse" data-parent=".faq-list">
+                    <p>
+                        A split loan is where one part of the loan is at a variable rate, and the remainder is at a
+                        fixed rate. It may be split 50% variable/ 50% fixed, or some other ratio such as 60/40. This
+                        type of loan effectively takes an “each way bet” on which way future
+                        interest rates are considered likely to go by the borrower.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq16" class="collapsed">What is a comparison rate? <i
+                        class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq16" class="collapse" data-parent=".faq-list">
+                    <p>
+                        A comparison rate reveals the cost of a loan, allowing you to compare ‘apples with apples’ when
+                        choosing a loan. The comparison rate takes into consideration the costs associated with setting
+                        up a loan, including the interest rate, the loan approval fee
+                        and any other up front or ongoing fees. It excludes government fees and charges, because they
+                        are standard across all loans.
+                    </p>
+                    <p>
+                        The comparison rate can be compared against the rates of other loans and loans with other
+                        lenders. It is also important to consider the features of a loan rather than just the interest
+                        rate when comparing loans. No monthly fee, repayment flexibility and
+                        money saving features such as 100% mortgage offset, can make a huge difference to the final cost
+                        of a loan.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#faq17" class="collapsed">Is there support available for me if my
+                    financial situation changes? <i class="bx bx-chevron-down icon-show"></i><i
+                        class="bx bx-x icon-close"></i></a>
+                <div id="faq17" class="collapse" data-parent=".faq-list">
+                    <p>
+                        FinTop recognises that people’s circumstances change, for this reason, we offer ongoing service
+                        to help make sure your home loan can change to meet your needs.
+                    </p>
+                    <p>
+                        Sometimes however your financial circumstances can deteriorate (loss of income, loss of job,
+                        sickness etc) and you may need support through these difficult times. All lenders we deal with
+                        comply with the Uniform Consumer Credit Code (UCCC) which sets
+                        out various levels of protection to consumers and obligations on lenders, which includes conduct
+                        surrounding support through financial hardship. We can assist you if needed by being a conduit
+                        between you and the lender. You should
+                        also be aware that under the UCCC, protection is provided to make sure lenders deal with you
+                        fairly in times of hardship.
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</section>
+<!-- End Frequently Asked Questions Section -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $(function () {
+        $('#nav-home').addClass('active');
+    });
+</script>
+{% endblock javascript %}

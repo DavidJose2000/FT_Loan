@@ -1,0 +1,7 @@
+id,user_id,loan_type,loan_wname,loan_wphone,loan_wemail,vehicle,vehicle_worth,vehicle_money,carloan_pay,accounts,superannuation,credit_card,loans,employment_type,annual_salary,monthly_expense,created_on
+7,3,Buy a Home,varun dawhan,8596352641,varun@gmail.com,No,,,No,3421231,4121231,No,4533131,Self-employed,123131,312314,2021-01-24 22:47:38.423048+00:00
+6,3,Buy a Home,varun dawhan,8596352641,varun@gmail.com,No,,,No,200000,200000,No,100000,Self-employed,200000,12000,2021-01-24 22:47:38.423048+00:00
+5,3,Buy a Home,varun dawhan,8596352641,varun@gmail.com,No,,,No,200000,200000,No,100000,Self-employed,200000,12000,2021-01-24 22:47:38.423048+00:00
+4,3,Buy a Home,varun dawhan,8596352641,varun@gmail.com,No,,,No,200000,200000,No,100000,Self-employed,200000,12000,2021-01-24 22:47:38.423048+00:00
+3,3,Buy a Home,varun dawhan,8596352641,varun@gmail.com,No,,,No,200000,200000,No,100000,Self-employed,200000,12000,2021-01-24 22:47:38.423048+00:00
+1,1,Refinance,,,,Yes,121,12,Yes,1232,1222,Yes,13121321,Employee,120000,12000,2021-01-24 22:47:38.423048+00:00

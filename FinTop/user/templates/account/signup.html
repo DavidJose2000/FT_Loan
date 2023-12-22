@@ -1,0 +1,218 @@
+﻿{% extends 'layouts/account.html' %} {% block title %} Signup {% endblock title %} {% block content %} {% load static %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    {% if form.errors %} {% for field in form %} {% for error in field.errors %}
+    <div class="alert alert-danger">
+        <strong>{{ error|escape }}</strong>
+    </div>
+    {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+    <div class="alert alert-danger">
+        <strong>{{ error|escape }}</strong>
+    </div>
+    {% endfor %} {% endif %}
+    <div class="row">
+        <div class="col-lg-8 col-md-10 m-auto login-form">
+            <h1 class="mb-4 text-center">Signup</h1>
+            <form method="post">
+                {% csrf_token %} {% if messages %}
+                <div class="alert alert-danger">
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %} {{ form|crispy }}
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="terms" name="terms" required>
+                   
+                       
+                        <label class="custom-control-label" for="terms">I Agree with <a href="#" data-toggle="modal"
+                                data-target="#exampleModal">Terms & Conditions</a>, <a href="#" data-toggle="modal"
+                                data-target="#exampleModal2">Privacy policy</a></label>
+                        
+                </div>
+
+                <div class="pt-4 text-center">
+                    <button type="submit" class="btn btn-primary w-75" disabled id="btn-submit">Submit</button>
+                </div>
+
+            </form>
+            <p class="mt-4">
+                Already have an account? <a href="{% url 'login' %}" class="link-effect">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Terms and Conditions</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-justify">
+                {% include "general_partials/terms.html" %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Privacy policy</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-justify">
+                {% include "general_partials/privacy-policy.html" %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $(document).on('change', '#terms', function () {
+        $('#btn-submit').attr('disabled', !$(this).prop('checked'));
+    });
+    $('#nav-signup').addClass('active');
+    $('#div_id_phnumber').append('<small class="form-text text-muted">Do not include +61</small>');
+    $("form").validate({
+        rules: {
+            username: {
+                required: true,
+                minlength: 3,
+            },
+            first_name: {
+                required: true,
+                alpha_only: true,
+                minlength: 3,
+                maxlength: 30,
+            },
+            last_name: {
+                required: true,
+                alpha_only: true,
+                minlength: 3,
+                maxlength: 30,
+            },
+            phnumber: {
+                phone_num: true,
+                
+            },
+            password1: {
+                required: true,
+                minlength: 8
+            },
+            password2: {
+                equalTo: "#id_password1"
+            },
+        },
+        messages: {
+            phnumber: {
+                required: "This field is required.",
+                phone_num: "Please enter valid phone number. Correct format is 04XXXXXXXX",
+            },
+        }
+    });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNVLT41L6D"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZNVLT41L6D');
+</script>
+
+<!-- Google Tag Manager -->
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-56NSK5Q');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Facebook Pixel Code -->
+<script>
+    ! function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '407869257116939');
+    fbq('track', 'PageView');
+</script>
+
+<!-- Hotjar Tracking Code for https://fintop.com.au -->
+<script>
+    (function (h, o, t, j, a, r) {
+        h.hj = h.hj || function () {
+            (h.hj.q = h.hj.q || []).push(arguments)
+        };
+        h._hjSettings = {
+            hjid: 2206984,
+            hjsv: 6
+        };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56NSK5Q" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Facebook Pixel Code -->
+<noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=407869257116939&ev=PageView&noscript=1" /></noscript> 
+        {% endblock javascript%}

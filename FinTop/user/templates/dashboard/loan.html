@@ -1,0 +1,80 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} My Loans {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h2 class="m-0 text-dark">My Loans</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'dashboard_home' %}" class="link-effect">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">My Loans</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <a href="{% url 'applyloan' %}" class="btn btn-primary">Apply Now</a>
+                </div>
+                
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" id="my-dt">
+                            <thead>
+                                <tr>
+                                    <th>Loan ID</th>
+                                    <th>Loan Type</th>
+                                    <th>Loan Status</th>
+                                    <th>Loan Writer Name</th>
+                                    <th>Loan Writer Phone</th>
+                                    <th>Loan Writer Email</th>
+                                    <th>Created On</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for sts in table %}
+                                <tr>
+                                    <!-- <td>{{sts.id}}</td> -->
+                                    <td>{{sts.id}}</td>
+                                    <td>{{sts.loan_type}}</td>
+                                    <td>{{sts.loan_status}}</td>
+                                    <td>{{sts.loan_wname}}</td>
+                                    <td>{{sts.loan_wphone}}</td>
+                                    <td>{{sts.loan_wemail}}</td>
+                                    <td>{{sts.created_on}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $('#nav-loan').addClass('active');
+</script>
+{% endblock javascript %}

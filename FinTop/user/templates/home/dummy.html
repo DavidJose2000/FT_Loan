@@ -1,0 +1,28 @@
+{% extends 'layouts/home.html' %} {% block title %} About us {% endblock title %} {% block content %} {% load static %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>About us</li>
+        </ol>
+        <h2>About us</h2>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section>
+    <div class="container">
+
+    </div>
+</section>
+
+{% endblock content %} {% block javascript %}
+<script>
+    $(function() {
+        $('#nav-about').addClass('active');
+    });
+</script>
+{% endblock javascript %}

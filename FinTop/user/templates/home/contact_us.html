@@ -1,0 +1,157 @@
+{% extends 'layouts/home.html' %} 
+{% block title %} Contact us {% endblock title %} 
+{% block content %} 
+{% load static%} 
+{% load crispy_forms_tags %}
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LdI20kaAAAAAGwmzHCfyonzLr5blCL0LQGgmOfJ"></script>
+<script>
+    // 3
+    grecaptcha.ready(function () {
+        // 4
+        $('#form').submit(function (e) {
+            var form = this;
+            // 5
+            e.preventDefault()
+            grecaptcha.execute('6LdI20kaAAAAAGwmzHCfyonzLr5blCL0LQGgmOfJ', { action: 'form' }).then(function (token) {
+                // 6
+                $('#recaptcha').val(token)
+                // 7
+                form.submit()
+            });
+        })
+    });
+</script>
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>Contact us</li>
+        </ol>
+        <h2>Contact us</h2>
+
+    </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<section id="contact" class="contact bg-white">
+    <div class="container">
+        <div class="row contact-info aos-init aos-animate" data-aos="fade-in">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="icon">
+                    <i class="ri-map-pin-fill"></i>
+                </div>
+                <h3>Address</h3>
+                <p>
+                    Unit 207 111 Overton Rd, <br> Williams Landing, <br> VIC, 3027
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="icon">
+                    <i class="ri-mail-line"></i>
+                </div>
+                <h3>Email</h3>
+                <p>
+                    <a class="link-effect" target="_blank" href="mailto:mail@fintop.com.au">mail@fintop.com.au</a>
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="icon">
+                    <i class="ri-phone-line"></i>
+                </div>
+                <h3>Call</h3>
+                <p>
+                    <a class="link-effect" target="_blank" href="tel:+61370369830">+61 3 7036 9830</a>
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="icon">
+                    <i class="ri-time-line"></i>
+                </div>
+                <h3>Timings</h3>
+                <p>Mon-Sat 10:00 - 18:00 </p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row align-items-center">
+            <div class="col-lg-7 map-box">
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.733892556606!2d144.74157721532032!3d-37.86651647974292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad689aafc559957%3A0x117c1ede9ca075f7!2sOffice%20207%2F111%20Overton%20Rd%2C%20Williams%20Landing%20VIC%203027%2C%20Australia!5e0!3m2!1sen!2sin!4v1609189720037!5m2!1sen!2sin"
+                        width="100%" height="650" frameborder="0" style="border:0" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-5 contact-form">
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.tags == "error" %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% elif message.tags == "success" %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                <form method="post" id="form" class="php-email-form">
+                    {% csrf_token %} {{form | crispy}}
+                    <div class="pt-4 text-center">
+                        <button type="submit" class="btn btn-primary w-75">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %} {% block javascript %}
+<script>
+    
+    $(function () {
+        $('#nav-contact_us').addClass('active');
+
+        $("#form").validate({
+            rules: {
+                name:{
+                    required:true,
+                    alpha_only: true,
+                    minlength: 3,
+                    maxlength: 30,
+                },
+                number : {
+                    phone_num: true,
+                },
+                subject:{
+                    required: true,
+                    minlength: 3
+                },
+                message:{
+                    required: true,
+                    minlength: 3
+                },
+            },
+            messages: {
+                number: {
+                    required: "This field is required.",
+                    phone_num: "Please enter valid phone number. Correct format is 04XXXXXXXX",
+                },
+        }
+          });
+    });
+</script>
+{% endblock javascript %}

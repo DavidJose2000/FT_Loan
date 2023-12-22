@@ -1,0 +1,126 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} Business Partner Details {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %} {% load render_table from django_tables2 %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Business Partner Details</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'dashboard_home' %}" class="link-effect">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Business Partner Details</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+
+                    {% if val == 0 %}
+                    <div class="alert alert-default-info" role="alert">
+                        <h4>
+                            You are not a FinTop Business Partner and are not eligible for any commission Payments.
+                        </h4>
+                        <a href="{% url 'Business' %}" class="link-effect" style="color: inherit;text-decoration: unset;">Click here</a> to become a <b>Business Partner</b>
+                    </div>
+                    {% else %}
+                    <h3>Bank Details</h3>
+                    <div class="row mb-4">
+                        <div class="col-lg-6">
+                            <form method="post">
+                                {% csrf_token %} {{ form|crispy }}
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-primary w-75" type="submit" name='save_form'>Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table" id="my-dt">
+                            <thead>
+                                <tr>
+                                    <!-- <th>ID</th> -->
+                                    <th>Lead Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                    <th>Commission($)</th>
+                                    <th>Created on</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {% for sts in table %}
+                                <tr>
+                                    <!-- <td>{{sts.id}}</td> -->
+                                    <td>{{sts.user}}</td>
+                                    <td>{{sts.get_phone.phnumber}}</td>
+                                    <td>{{sts.user.email}}</td>
+                                    <td>{{sts.status}}</td>
+                                    <td>{{sts.commissions}}</td>
+                                    <td>{{sts.created_on}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $(function() {
+        $('#nav-referral').addClass('active');
+
+        $("form").validate({
+            rules: {
+                bankname:{
+                    required:true,
+                    alpha_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+                acname:{
+                    required:true,
+                    alpha_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+                acno:{
+                    required:true,
+                    num_only: true,
+                },
+                bankisc:{
+                    required:true,
+                    alphanum_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+            }
+        });
+    });
+</script>
+{% endblock javascript %}

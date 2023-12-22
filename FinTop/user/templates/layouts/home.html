@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="theme-color" content="invalid">
+    <meta name="theme-color" content="currentcolor">
+    <meta name="theme-color" content="#0071bd">
+
+    <title>{% block title %}{% endblock title %} | Fintop</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'images/favicon.png' %}" rel="icon">
+    <link href="{% static 'images/favicon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="{% static 'fonts/gotham/gotham.css' %}" rel="stylesheet">
+    <link href="{% static 'fonts/inter/inter.css' %}" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'home_assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home_assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home_assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home_assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home_assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'home_assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+    <link href="{% static 'home_assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'home_assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'home_assets/css/customs.css' %}" rel="stylesheet">
+    <link href="{% static 'variables.css' %}" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177753968-1">
+    </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-177753968-1');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNVLT41L6D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZNVLT41L6D');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56NSK5Q');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '407869257116939');
+        fbq('track', 'PageView');
+    </script>
+
+    <!-- Hotjar Tracking Code for https://fintop.com.au -->
+    <script>
+        (function(h, o, t, j, a, r) {
+            h.hj = h.hj || function() {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+            h._hjSettings = {
+                hjid: 2206984,
+                hjsv: 6
+            };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script');
+            r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
+</head>
+
+<body>
+    <section id="topbar" class="d-none d-lg-block">
+        <div class="container-fluid clearfix">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="contact-info float-left mb-0">
+                        <a>
+                            <i class="icofont-clock-time"></i> Mon-Sat 10:00 - 18:00 
+                        </a>
+                        <a href="tel:+61370369830" data-toggle="tooltip" data-placement="bottom" title="Call us">
+                            <i class="icofont-phone"></i> +61 3 7036 9830
+                        </a>
+                        <a href="mailto:mail@fintop.com.au" data-toggle="tooltip" data-placement="bottom" title="Email us">
+                            <i class="icofont-email"></i> mail@fintop.com.au
+                        </a>
+                    </div>
+                    <div class="social-links social-top-links float-right">
+                        <a href="https://fintop.agilecrm.com/calendar/mortgage" class="link-effect" target="_blank">Book an appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="sticky-top">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 d-flex align-items-center">
+                    <a href="{% url 'home' %}" class="logo mr-auto"><img src="{% static 'images/logo.png' %}" alt=""></a>
+
+                    <nav class="nav-menu d-none d-lg-block">
+                        <ul>
+                            <li id="nav-home"><a href="{% url 'home' %}">Home</a></li>
+                            <li id="nav-about"><a href="{% url 'about' %}">About</a></li>
+                            <li id="nav-home_loan"><a href="{% url 'home_loan' %}">Home loan</a></li>
+                            <li id="nav-contact_us"><a href="{% url 'contact_us' %}">Contact</a></li>
+                            {% if user.is_authenticated %}
+                            <li class="drop-down">
+                                <a href="#"><i class="ri-user-line"></i></a>
+                                <ul>
+                                    <li><a class="text-muted">Hello, {{user.first_name}} {{user.last_name}}</a></li>
+                                    <li><a href="{% url 'dashboard_home' %}">My Dashboard</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    <!-- .nav-menu -->
+                    {% if user.is_authenticated %} {% else %}
+                    <a href="{% url 'login' %}" class="get-started-btn">Register/Login</a> {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    {% block hero_section %}{% endblock hero_section %}
+
+    <main id="main" style="min-height: 50vh;">
+        <!-- main content -->
+        {% block content %} {% endblock content %}
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-12 footer-contact">
+                        <h3>FINTOP</h3>
+                        <p>
+                            Our clients can easily use FinTop’s online tools to manage and track their application. Our mortgage consultant works closely with our client via our ‘Four Step application process’. We are in constant touch with our clients from start to finish and even
+                            after that in some cases to ensure the smooth process.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home' %}" class="link-effect">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}" class="link-effect">About</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home_loan' %}" class="link-effect">Home loan</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact_us' %}" class="link-effect">Contact</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'Terms' %}" class="link-effect" target="_blank">Terms &amp; conditions</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'PrivacyPolicy' %}" class="link-effect" target="_blank">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-newsletter">
+                        <h4>Contact us</h4>
+                        <p>
+                            Unit 207 111 Overton Rd, <br> Williams Landing, <br> VIC, 3027<br><br>
+                            <strong>Phone:</strong> +61 3 7036 9830<br>
+                            <strong>Email:</strong> mail@fintop.com.au<br>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    &copy; Copyright {% now 'Y' %} <strong><span>Fintop Mortgage and Finance</span></strong>. All Rights Reserved
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a target="_blank" href="https://www.linkedin.com/company/fintop-mortgageservices" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a target="_blank" href="https://twitter.com/FinTop_Aus" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a target="_blank" href="https://www.facebook.com/pages/category/Loan-Service/Fintop-Mortgage-Finance-Services-105979351474700/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a target="_blank" href="https://wa.me/61474499593" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'home_assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'home_assets/vendor/aos/aos.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'home_assets/js/main.js' %}"></script>
+    <!-- validation -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+    <script src="{% static 'validation.js' %}"></script>
+
+    {% block javascript %} {% endblock javascript %}
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56NSK5Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Facebook Pixel Code -->
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=407869257116939&ev=PageView&noscript=1"/></noscript>
+
+</body>
+
+</html>

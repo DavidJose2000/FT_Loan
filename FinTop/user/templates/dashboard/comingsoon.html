@@ -1,0 +1,85 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} Business Partner Details {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %} {% load render_table from django_tables2 %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Business Partner Details</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'dashboard_home' %}" class="link-effect">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Business Partner Details</li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+
+                    
+                    <div class="alert alert-default-info" role="alert">
+                        <center><h4>
+                            Coming Soon !<br>
+                            Hold tight , this feature is not available yet.
+                        </h4></center>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %} {% block javascript %}
+<script>
+    $(function() {
+        $('#nav-referral').addClass('active');
+
+        $("form").validate({
+            rules: {
+                bankname:{
+                    required:true,
+                    alpha_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+                acname:{
+                    required:true,
+                    alpha_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+                acno:{
+                    required:true,
+                    num_only: true,
+                },
+                bankisc:{
+                    required:true,
+                    alphanum_only: true,
+                    minlength: 3,
+                    maxlength: 50,
+                },
+            }
+        });
+    });
+</script>
+{% endblock javascript %}

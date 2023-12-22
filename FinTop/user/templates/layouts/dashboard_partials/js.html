@@ -1,0 +1,39 @@
+{% load static %}
+<!-- jQuery -->
+<script src="{% static 'dashboard/plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- pace-progress -->
+<script src="{% static 'dashboard/plugins/pace-progress/pace.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'dashboard/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dashboard/dist/js/adminlte.js' %}"></script>
+<script src="{% static 'dashboard/dist/js/main.js' %}"></script>
+<script src="{% static 'dashboard/dist/js/rippler.js' %}"></script>
+<script src="{% static 'dashboard/dist/js/cookie.js' %}"></script>
+<!-- SweetAlert2 -->
+<script src="{% static 'dashboard/plugins/sweetalert2/sweetalert2.min.js' %}"></script>
+<!-- Datatables -->
+<script src="{% static 'dashboard/plugins/datatables/datatables.js' %}"></script>
+<!-- Lazy load -->
+<script src="{% static 'dashboard/plugins/yall/yall.min.js' %}"></script>
+<script>
+    // Init Sweet Alert
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+</script>
+<!-- validation -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+<script src="{% static 'validation.js' %}"></script>

@@ -1,0 +1,55 @@
+{% extends 'layouts/account.html' %} {% block title %} Login {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7 col-md-10 m-auto login-form">
+            <h1 class="mb-4 text-center">Login</h1>
+            <form method="post">
+                {% csrf_token %} {% if messages %}
+                <div class="alert alert-danger messages">
+                    <ul class="">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %} {{ form|crispy }}
+
+                <div class="row pt-4">
+                    <div class="col-6">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="remember" name="remember">
+                            <label class="custom-control-label" for="remember">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <p class="mt-4">
+                Don't have an account? <a href="{% url 'agent:signup' %}" class="link-effect">Signup</a>
+            </p>
+
+            <p class="mt-4">
+                Forgot Password? <a href="{% url 'agent:reset_password' %}" class="link-effect">Click here</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block javascript %}
+<script>
+    $('#nav-login').addClass('active');
+    $("form").validate({
+        rules: {
+            password:{
+                required: true,
+                minlength: 3
+            },
+        }
+    });
+</script>
+{% endblock javascript %}

@@ -1,0 +1,21 @@
+{% extends 'layouts/dashboard.html' %} {% block title %} Congratulations You are Successfully Registered as a BizPartner. {% endblock title %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+                <div class="text-center">
+                    <img src="{% static 'images/success.png' %}" alt="My image" width="150px" class="mb-4">
+                    <h2>Congratulations You are Successfully Registered as a BizPartner.</h2>
+                    <a href="{% url 'dashboard_home' %}" class="btn btn-primary btn-lg">Back to home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %}
