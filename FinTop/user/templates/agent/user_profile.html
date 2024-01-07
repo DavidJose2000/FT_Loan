@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ agent.name }} Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Aleo:wght@400;600&family=Aoboshi+One&family=Roboto+Slab&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Aleo", serif;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrapper {
+        display: flex;
+        background: #faf1e2;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        justify-content: space-evenly;
+        width: 95%;
+        height: 95%;
+      }
+      .leftWrapper {
+        flex: 1;
+        border-right: 2px solid black;
+      }
+      .rightWrapper {
+        flex: 2;
+      }
+
+      .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        padding: 20px 40px;
+      }
+
+      .box img {
+        width: 200px;
+        height: 200px;
+        border: 3px solid #f5f5f5;
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .box .icons {
+        display: flex;
+        width: 170px;
+        justify-content: space-between;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .content div {
+        display: flex;
+      }
+
+      .total {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin: 20px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="container">
+        <div class="wrapper">
+          <div class="leftWrapper">
+            <div class="box">
+              <img src="{% static 'images/success.png' %}" alt="no mage" />
+              <div class="icons">
+                <i class="fa fa-phone" style="font-size: 24px"></i>
+                <i class="fa fa-envelope-o" style="font-size: 24px"></i>
+                <i class="fa fa-envelope-o" style="font-size: 24px"></i>
+              </div>
+              <div class="content">
+                <div>
+                  <!-- Display the agent's name -->
+                  <h1>{{ agent.name }}</h1>
+                </div>
+                <div>
+                  <!-- Display the agent's contact -->
+                  <h2>Contact: {{ agent.contact }}</h2>
+                </div>
+                <div>
+                  <!-- Display the agent's email -->
+                  <h2>Email: {{ agent.email }}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rightWrapper">
+            <div class="total">
+              <!-- Display the total amount -->
+              <h3>Total Amount:</h3>
+              <h1>{{ agent.loan_amount }}</h1>
+            </div>
+            <div class="total">
+              <!-- Display the bill date -->
+              <h3>Bill Date:</h3>
+              <h1>{{ agent.loan_bought_date }}</h1>
+            </div>
+            <div class="total">
+              <!-- Display the due date -->
+              <h3>Due Date:</h3>
+              <h1>{{ agent.due_date }}</h1>
+            </div>
+            <div class="total">
+              <!-- Display the bill number -->
+              <h3>Bill Number:</h3>
+              <h1>{{ agent.id }}</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

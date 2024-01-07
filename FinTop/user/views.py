@@ -15,7 +15,7 @@ from django.views.generic import View, UpdateView
 from user.forms import SignUpForm, ProfileForm, BusinessForm, BankInfoForm, LoanForm, AdditionalAssetsForm, \
     AdditionalLiabilitiesForm, ProfileForms, ContactForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect,  JsonResponse
 from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes
@@ -37,6 +37,7 @@ from django.contrib.staticfiles import finders
 import requests
 from .utils import render_to_pdf
 
+from datetime import date, timedelta
 
 # ===== Landing page views ====#
 
@@ -585,7 +586,8 @@ class applyloan(View):
             r = Referral.objects.get(user=user)
             pr = r.referred_by
             if pr.is_agent:
-                Underprocess_loans.objects.create(loan_id=bn.pk, agent=pr.pk).save()
+                Underprocess_loans.objects.create(
+                    loan_id=bn.pk, agent=pr.pk).save()
             # AdditionalAssets()
         # table = Loan.objects.all().filter(user=user)
         # return render(request, 'dashboard/loan.html', {'loan':LoanForm, 'asset': AdditionalAssetsForm, 'liability': AdditionalLiabilitiesForm, 'table': table})
@@ -645,3 +647,267 @@ class contact(View):
             bn.save(number=phnumber)
 
         return HttpResponseRedirect(reverse('contact_us'))
+
+
+# Agent View Page
+
+agent_data = [
+    {
+        'id': 1,
+        'name': 'John Doe',
+        'contact': "3235565545",
+        'email': "john@gmail.com",
+        'address': '123 Main St',
+        'loan_amount': '$10,000',
+        'paid_amount': '$5,000',
+        'pending_amount': '$5,000',
+        'emi': '$500',
+        'loan_bought_date': '2022-01-01',
+        'loan_period_months': 12,
+        'due_date': 'Jan. 5, 2024',
+        'status': 'Not Paid',
+    },
+    {
+        'id': 2,
+        'name': 'Jane Smith',
+        'contact': "3235565545",
+        'email': "john@gmail.com",
+        'address': '456 Oak Ave asdfasjdfashdfasdhfkjdshfkjdshfakjlsdhfjkasdhfkjdlsaf adsfasdfsajkdhl',
+        'loan_amount': '$8,000',
+        'paid_amount': '$2,000',
+        'pending_amount': '$0',
+        'emi': '$600',
+        'loan_bought_date': '2022-01-15',
+        'loan_period_months': 24,
+        'due_date': 'Dec. 27, 2022',
+        'status': 'Paid',
+    },
+    {
+        'id': 3,
+        'name': 'Alice Johnson',
+        'contact': "5551234567",
+        'email': "alice@example.com",
+        'address': '789 Elm St',
+        'loan_amount': '$12,000',
+        'paid_amount': '$6,000',
+        'pending_amount': '$6,000',
+        'emi': '$550',
+        'loan_bought_date': '2022-02-10',
+        'loan_period_months': 18,
+        'due_date': 'Feb. 5, 2024',
+        'status': 'Paid',
+    },
+    {
+        'id': 4,
+        'name': 'Bob Williams',
+        'contact': "5559876543",
+        'email': "bob@example.com",
+        'address': '987 Pine St',
+        'loan_amount': '$15,000',
+        'paid_amount': '$9,000',
+        'pending_amount': '$6,000',
+        'emi': '$800',
+        'loan_bought_date': '2021-12-05',
+        'loan_period_months': 24,
+        'due_date': 'Dec. 5, 2023',
+        'status': 'Paid',
+    },
+    {
+        'id': 5,
+        'name': 'Eva Davis',
+        'contact': "5555678901",
+        'email': "eva@example.com",
+        'address': '456 Maple Ave',
+        'loan_amount': '$18,000',
+        'paid_amount': '$10,000',
+        'pending_amount': '$8,000',
+        'emi': '$900',
+        'loan_bought_date': '2022-03-20',
+        'loan_period_months': 36,
+        'due_date': 'Mar. 20, 2024',
+        'status': 'Not Paid',
+    },
+    {
+        'id': 6,
+        'name': 'Charlie Brown',
+        'contact': "5556789012",
+        'email': "charlie@example.com",
+        'address': '789 Oak St',
+        'loan_amount': '$20,000',
+        'paid_amount': '$12,000',
+        'pending_amount': '$8,000',
+        'emi': '$1,000',
+        'loan_bought_date': '2022-04-15',
+        'loan_period_months': 24,
+        'due_date': 'Apr. 15, 2024',
+        'status': 'Not Paid',
+    },
+    {
+        'id': 7,
+        'name': 'Grace Miller',
+        'contact': "5557890123",
+        'email': "grace@example.com",
+        'address': '123 Birch St',
+        'loan_amount': '$25,000',
+        'paid_amount': '$15,000',
+        'pending_amount': '$10,000',
+        'emi': '$1,200',
+        'loan_bought_date': '2022-05-12',
+        'loan_period_months': 36,
+        'due_date': 'May 12, 2024',
+        'status': 'Not Paid',
+    },
+    {
+        'id': 8,
+        'name': 'David Wilson',
+        'contact': "5558901234",
+        'email': "david@example.com",
+        'address': '456 Cedar St',
+        'loan_amount': '$30,000',
+        'paid_amount': '$20,000',
+        'pending_amount': '$10,000',
+        'emi': '$1,500',
+        'loan_bought_date': '2022-06-18',
+        'loan_period_months': 24,
+        'due_date': 'Jun. 18, 2024',
+        'status': 'Paid',
+    },
+    {
+        'id': 9,
+        'name': 'Fiona Lee',
+        'contact': "5559012345",
+        'email': "fiona@example.com",
+        'address': '789 Pine St',
+        'loan_amount': '$22,000',
+        'paid_amount': '$12,000',
+        'pending_amount': '$10,000',
+        'emi': '$800',
+        'loan_bought_date': '2022-07-07',
+        'loan_period_months': 18,
+        'due_date': 'Jul. 7, 2024',
+        'status': 'Paid',
+    },
+    {
+        'id': 10,
+        'name': 'George Smith',
+        'contact': "5550123456",
+        'email': "george@example.com",
+        'address': '123 Maple Ave',
+        'loan_amount': '$28,000',
+        'paid_amount': '$15,000',
+        'pending_amount': '$13,000',
+        'emi': '$1,200',
+        'loan_bought_date': '2022-08-22',
+        'loan_period_months': 36,
+        'due_date': 'Aug. 22, 2024',
+        'status': 'Paid',
+    },
+    {
+        'id': 11,
+        'name': 'Helen Davis',
+        'contact': "5552345678",
+        'email': "helen@example.com",
+        'address': '456 Oak St',
+        'loan_amount': '$18,000',
+        'paid_amount': '$9,000',
+        'pending_amount': '$9,000',
+        'emi': '$600',
+        'loan_bought_date': '2022-09-10',
+        'loan_period_months': 24,
+        'due_date': 'Sep. 10, 2024',
+        'status': 'Not Paid',
+    },
+    {
+        'id': 12,
+        'name': 'Ivan Johnson',
+        'contact': "5553456789",
+        'email': "ivan@example.com",
+        'address': '789 Cedar St',
+        'loan_amount': '$25,000',
+        'paid_amount': '$20,000',
+        'pending_amount': '$5,000',
+        'emi': '$1,000',
+        'loan_bought_date': '2022-10-05',
+        'loan_period_months': 18,
+        'due_date': 'Oct. 5, 2024',
+        'status': 'Paid',
+    },
+    {
+        'id': 13,
+        'name': 'Jackie Lee',
+        'contact': "5554567890",
+        'email': "jackie@example.com",
+        'address': '123 Birch St',
+        'loan_amount': '$16,000',
+        'paid_amount': '$8,000',
+        'pending_amount': '$8,000',
+        'emi': '$800',
+        'loan_bought_date': '2022-11-18',
+        'loan_period_months': 24,
+        'due_date': 'Nov. 18, 2024',
+        'status': 'Paid',
+    },
+    {
+        'id': 14,
+        'name': 'Katie Wilson',
+        'contact': "5555678901",
+        'email': "katie@example.com",
+        'address': '456 Elm St',
+        'loan_amount': '$20,000',
+        'paid_amount': '$12,000',
+        'pending_amount': '$8,000',
+        'emi': '$1,000',
+        'loan_bought_date': '2022-12-15',
+        'loan_period_months': 18,
+        'due_date': 'Dec. 15, 2024',
+        'status': 'Not Paid',
+    },
+    {
+        'id': 15,
+        'name': 'Leo Brown',
+        'contact': "5556789012",
+        'email': "leo@example.com",
+        'address': '789 Pine St',
+        'loan_amount': '$28,000',
+        'paid_amount': '$20,000',
+        'pending_amount': '$8,000',
+        'emi': '$1,200',
+        'loan_bought_date': '2023-01-20',
+        'loan_period_months': 24,
+        'due_date': 'Jan. 20, 2025',
+        'status': 'Paid',
+    },
+
+]
+
+
+def agent_table_view(request):
+    # Sample data generation (replace this with your actual logic)
+
+    data = {'agent_data': agent_data}
+
+    # Render the HTML page with the sample data
+    return render(request, 'agent/agent_log.html', {'data': data})
+
+
+def get_agent_by_id(agent_data, agent_id):
+    for agent in agent_data:
+        if agent['id'] == agent_id:
+            return agent
+    return None
+
+
+def user_profile_view(request, agent_id):
+
+    matched_agent = get_agent_by_id(agent_data, agent_id)
+
+    if not matched_agent:
+        return JsonResponse({'error': 'Agent not found'}, status=404)
+
+    if request.method == 'POST':
+        agent_id = request.POST.get('agent_id')
+
+        return render(request, 'agent/user_profile.html', {'agent': matched_agent})
+
+    # Handle other HTTP methods or return an error response if needed
+    # return JsonResponse({'error': 'Invalid request method'}, status=400)

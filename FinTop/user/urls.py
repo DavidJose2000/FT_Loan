@@ -3,7 +3,7 @@ from user.views import SignUpView, ProfileView, ActivateAccount, ReferralListVie
 from . import views
 from django.contrib.auth import views as auth_views  # import this
 urlpatterns = [
-    ##=== home routes ===##
+    ## === home routes ===##
 
     path('about-us', views.about, name='about'),
     path('contact-us', contact.as_view(), name='contact_us'),
@@ -12,7 +12,7 @@ urlpatterns = [
     path('privacy-policy', views.PrivacyPolicy, name='PrivacyPolicy'),
     path('agreement', views.agreement, name='agreement'),
 
-    ##=== account routes ===##
+    ## === account routes ===##
 
     path('signup', SignUpVieww.as_view(), name='signup'),
     path('signup/ref=<uid>', SignUpView.as_view(), name='ref'),
@@ -25,7 +25,7 @@ urlpatterns = [
     path('account/reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(
         template_name='account/password_reset_complete.html'), name='password_reset_complete'),
 
-    ##=== dashboard routes ===##
+    ## === dashboard routes ===##
 
     path('dashboard/', include([
         path('', dashboard.as_view(), name='dashboard_home'),
@@ -44,7 +44,7 @@ urlpatterns = [
 
         path('biz/<int:pk>', ProfileView, name='biz'),
 
-        path('agreement', views.agreement, name='agreement'), 
+        path('agreement', views.agreement, name='agreement'),
 
         # path('profile', views.prf, name='profile1'),
 
@@ -53,4 +53,10 @@ urlpatterns = [
         path('success', views.success, name='success'),
         path('applyloan', applyloan.as_view(), name='applyloan'),
     ])),
+
+    # Agent page route
+
+    path('table/', views.agent_table_view, name='table_view'),
+    path('user_profile/<int:agent_id>/',
+         views.user_profile_view, name='user_profile_view'),
 ]
